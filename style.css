@@ -1,0 +1,27 @@
+table {
+	width: 50%; 
+	border-collapse: collapse;
+	font-size: 18px;
+	text-align: center;
+}
+th {
+	color: #ffffff; 
+	font-weight: bold;
+	background: #00bf80;
+	height: 50px;
+}
+thead th td {
+	border: 1px solid #01ab73;
+}
+tbody tr td {
+	border: 1px solid #e8e9eb;
+	height: 40px;
+}
+tr:nth-child(2n) {
+	background: #f4f4f4;
+}
+tr:hover {
+	background: #ebffe8;
+}
+
+/*переделать дизайн полностью, кнопки и названия.*/
