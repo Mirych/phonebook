@@ -8,13 +8,11 @@ th {
 	color: #ffffff; 
 	font-weight: bold;
 	background: #00bf80;
-	height: 50px;
+	height: 40px;
+	border: 5px solid #01ab73;
 }
-thead th td {
-	border: 1px solid #01ab73;
-}
-tbody tr td {
-	border: 1px solid #e8e9eb;
+td {
+	border: 5px solid #e8e9eb;
 	height: 40px;
 }
 tr:nth-child(2n) {
@@ -22,6 +20,11 @@ tr:nth-child(2n) {
 }
 tr:hover {
 	background: #ebffe8;
+}
+table input {
+  width: 120px;
+  height: 20px;
+  font-size: 16px;
 }
 
 /*переделать дизайн полностью, кнопки и названия.*/

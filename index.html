@@ -11,21 +11,21 @@
   
   <center>
     <div class="wrapper">
-    <form id="addingForm" action="">
-      <input id="name" type="text" value="Name">
-      <input id="phone" type="text" value="+7999">
-      <input type="submit" value="add">
-    </form>
-    <button id="deleteAll" onclick="deleteAllContacts()">Delete All Contacts</button>
-    <table id="contactsTable" border="1">
-      <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>edit</th>
-        <th>delete</th>
-      </tr>
-    </table>
-  </div>
+      <form id="addingForm" action="">
+        <input id="name" type="text" placeholder='Name' required>
+        <input id="phone" type="text" placeholder='+79991234567' required>
+        <input type="submit" value="add" >
+      </form>
+      <button id="deleteAll" onclick="deleteAllContacts()">Delete All Contacts</button>
+      <table id="contactsTable" border="1" >
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </table>
+    </div>
   </center>
  
   <script src="test.js"></script>
