@@ -1,25 +1,25 @@
 // loading contacts from localstorage
 window.onload = function() {
-    let contactsList = JSON.parse(localStorage.getItem(ContactsLocalKey));
-    if (contactsList != null) {
-	    for (let i = 0; i < contactsList.length; i++) {
-	    	addRow(contactsList[i], i);
-	    }
+    const contactsList = JSON.parse(localStorage.getItem(ContactsLocalKey));
+    if (contactsList) {
+    	contactsList.forEach(function(it, i, arr){
+    		addRow(arr[i], i);
+    	});
     }
 }
 
 const ContactsLocalKey = "contactsList";
-var form = document.querySelector("form#addingForm");
+const form = document.querySelector("#addingForm");
 
 form.onsubmit = function(ev) {
     ev.preventDefault();
 
-    let name = document.querySelector('input#name').value;
-    let phone = document.querySelector('input#phone').value;
+    const name = document.querySelector('#name').value;
+    const phone = document.querySelector('#phone').value;
 
     let contact = {
-    	name: name,
-      phone: phone
+    	name,
+      	phone
     };
 
     let contactsList = JSON.parse(localStorage.getItem(ContactsLocalKey));
@@ -35,19 +35,23 @@ form.onsubmit = function(ev) {
     localStorage.setItem(ContactsLocalKey, JSON.stringify(contactsList));
 }
 
-function removeContact(btn) {
-    var tr = btn.parentNode.parentNode;
+function deleteContact(btn) {
+    let tr = btn.parentNode.parentNode;
     tr.parentNode.removeChild(tr);
     let itemId = tr.id;
 
-    let contactsList = JSON.parse(localStorage.getItem(ContactsLocalKey));
+    const contactsList = JSON.parse(localStorage.getItem(ContactsLocalKey));
     contactsList.splice(itemId, 1);
 
     localStorage.setItem(ContactsLocalKey, JSON.stringify(contactsList));
 }
 
+// take button for event
+let del = document.querySelector('#deleteAll');
+del.addEventListener('click', deleteAllContacts);
+
 function deleteAllContacts(btn) {
-	var table = document.querySelector('table');
+	const table = document.querySelector('table');
 	let contactsList = JSON.parse(localStorage.getItem(ContactsLocalKey));
 
 	for (let i = contactsList.length; i > 0; i--) {
@@ -59,12 +63,11 @@ function deleteAllContacts(btn) {
 }
 
 function editContact(btn) {
-	// change button for save
-	btn.style.display = 'none';
+	// change btn for save
 	var td = btn.parentNode;
 	td.innerHTML = '<button id="save" onclick="saveContact(this)">save</button>';
 	
-	var tr = td.parentNode;
+	let tr = td.parentNode;
 	var td = tr.querySelectorAll('td');
 
 	//make to inputs
@@ -73,17 +76,16 @@ function editContact(btn) {
 } 
 
 function saveContact(btn) {
-	// change button for edit 
-	btn.style.display = 'none';
+	// change btn for edit
 	var td = btn.parentNode;
 	td.innerHTML = '<button id="edit" onclick="editContact(this)">edit</button>';
 
-	var tr = td.parentNode;
+	let tr = td.parentNode;
 	var td = tr.querySelectorAll('td');
 
 	// get new contacts
-	let newName = td[0].querySelector('input#name').value;
-	let newPhone = td[1].querySelector('input#phone').value;
+	const newName = td[0].querySelector('input#name').value;
+	const newPhone = td[1].querySelector('input#phone').value;
 
 	// remove inputs
 	td[0].innerHTML = newName;
@@ -94,23 +96,23 @@ function saveContact(btn) {
 	    phone: newPhone
 	};
 
-	let contactsList = JSON.parse(localStorage.getItem(ContactsLocalKey));
+	const contactsList = JSON.parse(localStorage.getItem(ContactsLocalKey));
 
 	// rewrite array
-	let itemId = tr.id;  
+	const itemId = tr.id;  
 	contactsList[itemId] = contact;
 
 	// add element to localStorage
 	localStorage.setItem(ContactsLocalKey, JSON.stringify(contactsList));
 }
 
-
 // add row to table
 function addRow(contact, id) {
 	let table = document.querySelector("#contactsTable");
 	let row = table.insertRow();
 	row.id = id;
-	
+	// let { insertCell } = row;
+
 	let nameCell = row.insertCell();
 	nameCell.innerHTML = contact.name;
 
@@ -121,5 +123,5 @@ function addRow(contact, id) {
 	editCell.innerHTML = '<button id="edit" onclick="editContact(this)">edit</button>';
 
 	let deleteCell = row.insertCell();
-	deleteCell.innerHTML = '<button id="del" onclick="removeContact(this)">delete</button>';
+	deleteCell.innerHTML = '<button id="del" onclick="deleteContact(this)">delete</button>';
 }
