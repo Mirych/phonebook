@@ -13,15 +13,15 @@
       <form id="addingForm" action="">
         <input id="name" type="text" placeholder='Name' required>
         <input id="phone" type="text" placeholder='+79991234567' required>
-        <input type="submit" value="add" >
+        <input id="add" type="submit" value="Add">
       </form>
       <button id="deleteAll">Delete All Contacts</button>
-      <table id="contactsTable" border="1" >
+      <table id="contactsTable">
         <tr>
           <th>Name</th>
           <th>Phone</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th id="editTH"></th>
+          <th id="delTH"></th>
         </tr>
       </table>
     </div>

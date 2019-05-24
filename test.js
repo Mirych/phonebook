@@ -65,7 +65,7 @@ function deleteAllContacts(btn) {
 function editContact(btn) {
 	// change btn for save
 	var td = btn.parentNode;
-	td.innerHTML = '<button id="save" onclick="saveContact(this)">save</button>';
+	td.innerHTML = '<button id="save" onclick="saveContact(this)">Save</button>';
 	
 	let tr = td.parentNode;
 	var td = tr.querySelectorAll('td');
@@ -78,7 +78,7 @@ function editContact(btn) {
 function saveContact(btn) {
 	// change btn for edit
 	var td = btn.parentNode;
-	td.innerHTML = '<button id="edit" onclick="editContact(this)">edit</button>';
+	td.innerHTML = '<button id="edit" onclick="editContact(this)">Edit</button>';
 
 	let tr = td.parentNode;
 	var td = tr.querySelectorAll('td');
@@ -120,8 +120,8 @@ function addRow(contact, id) {
 	phoneCell.innerHTML = contact.phone;
 
 	let editCell = row.insertCell();
-	editCell.innerHTML = '<button id="edit" onclick="editContact(this)">edit</button>';
+	editCell.innerHTML = '<button id="edit" onclick="editContact(this)">Edit</button>';
 
 	let deleteCell = row.insertCell();
-	deleteCell.innerHTML = '<button id="del" onclick="deleteContact(this)">delete</button>';
+	deleteCell.innerHTML = '<button id="del" onclick="deleteContact(this)">Delete</button>';
 }

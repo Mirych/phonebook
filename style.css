@@ -1,43 +1,90 @@
-.wrapper  {
+.wrapper {
 	text-align: center;
+}
+
+
+button {
+	border: none;
+	color: #fff;
+	cursor: pointer;
+}
+
+#addingForm {
+	display: inline-block;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#addingForm input {
+	padding: 10px;
+}
+
+#add {
+	font-weight: bold;
+	padding: 11px 30px !important;
+	color: #fff;
+	background: #56edfb;
+  	border: none;
+  	cursor: pointer;	
+}
+
+#deleteAll {
+	padding: 11px 12px;
+	background: #fd0036;
+}
+
+#editTH {
+	width: 80px;
+	padding-right: 30px;
+}
+
+#delTH {
+	width: 60px;
+}
+
+#del {
+	padding: 11px 20px;
+	background-color: #fd0036;
+}
+
+#edit {
+	padding: 11px 30px;
+	background-color: #56edfb;
+}
+
+#save {
+	padding: 11px 30px;
+	background-color: #53ea56;
 }
 
 table {
 	width: 50%; 
-	border-collapse: collapse;
 	font-size: 18px;
-	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
+	border-collapse: collapse;
+
 }
 
 table input {
  	width: 120px;
-  	height: 20px;
+  	height: 30px;
   	font-size: 16px;
+  	text-align: center;
+  	border: 2px solid #53ea56;
 }
 
-th {
+tr th {
 	color: #ffffff; 
 	font-weight: bold;
-	background: #00bf80;
-	height: 40px;
-	border: 5px solid #01ab73;
+	background-color: #4184c6;
+	height: 60px;
 }
 
-td {
-	border: 5px solid #e8e9eb;
-	height: 40px;
+tr {
+	height: 50px;
 }
 
-tr:nth-child(2n) {
-	background: #f4f4f4;
+tr:nth-child(2n+1) {
+	background: #e1e3e4;
 }
-
-tr:hover {
-	background: #ebffe8;
-}
-
-
-
-/*переделать дизайн полностью, кнопки и названия.*/
